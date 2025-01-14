@@ -1,6 +1,11 @@
 package org.skypro.skyshop_2_0.service;
 
-import org.skypro.skyshop_2_0.model.*;
+import org.skypro.skyshop_2_0.model.article.Article;
+import org.skypro.skyshop_2_0.model.product.DiscountedProduct;
+import org.skypro.skyshop_2_0.model.product.FixPriceProduct;
+import org.skypro.skyshop_2_0.model.product.Product;
+import org.skypro.skyshop_2_0.model.product.SimpleProduct;
+import org.skypro.skyshop_2_0.model.search.Searchable;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -32,17 +37,25 @@ public class StorageService {
         return articles;
     }
 
-    private void addProduct(Product product) {
+    public void addProduct(Product product) {
         UUID id = product.getID();
         String productName = product.getProductName();
         int price = product.getPrice();
         products.put(id, product);
     }
 
-    private void addArticle(Article article) {
+    public void addArticle(Article article) {
         UUID id = article.getID();
         String title = article.getTitle();
         String text = article.getText();
         articles.put(id, article);
     }
+
+    public Set<Searchable> getSearchableCollection() {
+        Set<Searchable> searchlist = new HashSet<>();
+        searchlist.addAll(products.values());
+        searchlist.addAll(articles.values());
+        return searchlist;
+    }
+
 }

@@ -1,4 +1,4 @@
-package org.skypro.skyshop_2_0.model;
+package org.skypro.skyshop_2_0.model.product;
 
 import java.util.Objects;
 import java.util.UUID;
