@@ -10,19 +10,15 @@ import java.util.Map;
 import java.util.UUID;
 
 public class ShopController {
-    private final StorageService storageService;
-
-    public ShopController(StorageService storageService) {
-        this.storageService = storageService;
-    }
+    private final StorageService storageService = null;
 
     @GetMapping("/products")
     public Map<UUID, Product> getAllProducts(){
-        return storageService.returnProducts();
+        return storageService.getProducts();
     }
 
     @GetMapping("/articles")
     public Map<UUID, Article> getAllArticles() {
-        return storageService.returnArticles();
+        return storageService.getArticles();
     }
 }
