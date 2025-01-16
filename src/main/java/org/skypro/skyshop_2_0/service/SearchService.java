@@ -13,10 +13,11 @@ public class SearchService {
     }
 
     public Set<SearchResult> search(String search) {
-        return storageService.getSearchableCollection().stream()
+        Set<SearchResult> searchResults = storageService.getSearchableCollection().stream()
                 .filter(searchlist -> searchlist.getSearchTerm().toLowerCase().replace(" ", "")
                         .contains(search.toLowerCase().replace(" ", "")))
                 .map(SearchResult::fromSearchable)
                 .collect(Collectors.toSet());
+        return searchResults;
     }
 }

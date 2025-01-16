@@ -1,7 +1,5 @@
 package org.skypro.skyshop_2_0.model.product;
 
-import org.skypro.skyshop_2_0.model.product.Product;
-
 import java.util.UUID;
 
 public class FixPriceProduct extends Product {
