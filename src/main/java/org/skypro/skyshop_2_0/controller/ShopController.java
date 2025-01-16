@@ -34,7 +34,7 @@ public class ShopController {
     }
 
     @GetMapping("/search")
-    public Set<Searchable> search(String pattern) {
+    public Set<SearchResult> search(String pattern) {
         return searchService.search(pattern);
     }
 }

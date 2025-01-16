@@ -16,12 +16,12 @@ public class SearchService {
         this.storageService = storageService;
     }
 
-    public Set<Searchable> search(String search) {
-        Set<SearchResult> searchResults = new HashSet<>();
-        Set<Searchable> searchResults2 = storageService.getSearchableCollection().stream()
-                .filter(searchable -> searchable.getSearchTerm().toLowerCase().replace(" ", "")
+    public Set<SearchResult> search(String search) {
+        Set<SearchResult> searchResults = storageService.getSearchableCollection().stream()
+                .filter(searchlist -> searchlist.getSearchTerm().toLowerCase().replace(" ", "")
                         .contains(search.toLowerCase().replace(" ", "")))
+                .map(SearchResult::fromSearchable)
                 .collect(Collectors.toCollection(HashSet::new));
-        return searchResults2;
+        return searchResults;
     }
 }

@@ -34,7 +34,7 @@ public class Article implements Searchable {
         return title + text;
     }
 
-    @Override
+    @Override @JsonIgnore
     public String getObjName() {
         return this.title;
     }
