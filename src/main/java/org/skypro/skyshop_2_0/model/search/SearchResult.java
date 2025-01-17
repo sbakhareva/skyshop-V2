@@ -5,10 +5,10 @@ public class SearchResult {
     private final String name;
     private final String contentType;
 
-    public SearchResult(String id, String name, String contentType) {
-        this.id = id;
-        this.name = name;
-        this.contentType = contentType;
+    public SearchResult(String idIn, String nameIn, String contentTypeIn) {
+        this.id = idIn;
+        this.name = nameIn;
+        this.contentType = contentTypeIn;
     }
 
     public static SearchResult fromSearchable(Searchable object) {
@@ -16,5 +16,17 @@ public class SearchResult {
         String name = object.getObjName();
         String contentType = object.getType();
         return new SearchResult(id, name, contentType);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getContentType() {
+        return contentType;
     }
 }
