@@ -5,10 +5,10 @@ public class SearchResult {
     private final String name;
     private final String contentType;
 
-    public SearchResult(String idIn, String nameIn, String contentTypeIn) {
-        this.id = idIn;
-        this.name = nameIn;
-        this.contentType = contentTypeIn;
+    public SearchResult(String id, String name, String contentType) {
+        this.id = id;
+        this.name = name;
+        this.contentType = contentType;
     }
 
     public static SearchResult fromSearchable(Searchable object) {
