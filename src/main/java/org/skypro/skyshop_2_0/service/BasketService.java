@@ -32,13 +32,11 @@ public class BasketService {
 
     public void addProductByID(UUID id) {
         Optional<Product> product = storageService.getProductById(id);
-        product.ifPresent(p -> productBasket.addProduct(id));
-        product.orElseThrow(() -> new IllegalArgumentException("parameter is null"));
-//        if (product.isPresent()) {
-//            throw new IllegalArgumentException("parameter is null");
-//        } else {
-//            productBasket.addProduct(id);
-//        }
+        if (product.isPresent()) {
+            productBasket.addProduct(id);
+        } else {
+            throw new IllegalArgumentException("parameter is null");
+        }
     }
 
     public List<UserBasket> getUserBasket() {
