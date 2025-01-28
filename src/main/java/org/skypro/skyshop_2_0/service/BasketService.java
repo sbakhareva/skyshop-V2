@@ -34,12 +34,16 @@ public class BasketService {
         Optional<Product> product = storageService.getProductById(id);
         product.ifPresent(p -> productBasket.addProduct(id));
         product.orElseThrow(() -> new IllegalArgumentException("parameter is null"));
+//        if (product.isPresent()) {
+//            throw new IllegalArgumentException("parameter is null");
+//        } else {
+//            productBasket.addProduct(id);
+//        }
     }
 
     public List<UserBasket> getUserBasket() {
-        Map<UUID, Integer> basket = productBasket.getAllProducts();
-        List<BasketItem> basketItems = basket.entrySet().stream()
-                .map(item -> new BasketItem(storageService.getProductById(), item.getValue()))
+        List<BasketItem> basketItems = productBasket.getAllProducts().entrySet().stream()
+                .map(item -> new BasketItem(storageService.getProducts().get(item.getKey()), item.getValue()))
                 .toList();
         List<UserBasket> userBasket = Collections.singletonList(new UserBasket(basketItems));
         return userBasket;

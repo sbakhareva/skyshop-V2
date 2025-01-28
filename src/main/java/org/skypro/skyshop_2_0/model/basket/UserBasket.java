@@ -13,7 +13,7 @@ public final class UserBasket {
     }
 
     public int getTotal() {
-        return total;
+        return countTotal();
     }
 
     public List<BasketItem> getUserBasket() {
@@ -21,8 +21,12 @@ public final class UserBasket {
     }
 
     public int countTotal() {
-        return total = Math.toIntExact(userBasket.stream()
-                .flatMapToInt(t -> IntStream.of((t.getProduct().getPrice() * t.getAmt())))
-                .sum());
+        return total = userBasket.stream()
+                .mapToInt(p -> {
+                    int price = p.getProduct().getPrice();
+                    int atm = p.getAmt();
+                    return price * atm;
+                })
+                .sum();
     }
 }

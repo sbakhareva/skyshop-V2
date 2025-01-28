@@ -22,12 +22,11 @@ public class ProductBasket {
     }
 
     public void addProduct(UUID id) {
-        int counter = 1;
+        int counter = 0;
         if (productBasket.containsKey(id)) {
-            productBasket.put(id, ++counter);
-        } else {
-            productBasket.put(id, counter);
+            counter = productBasket.get(id);
         }
+        productBasket.put(id, counter + 1);
     }
 
     public Map<UUID, Integer> getAllProducts() {
