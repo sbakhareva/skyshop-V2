@@ -3,6 +3,7 @@ package org.skypro.skyshop_2_0.service;
 import org.skypro.skyshop_2_0.model.basket.BasketItem;
 import org.skypro.skyshop_2_0.model.basket.ProductBasket;
 import org.skypro.skyshop_2_0.model.basket.UserBasket;
+import org.skypro.skyshop_2_0.model.errors.NoSuchProductException;
 import org.skypro.skyshop_2_0.model.product.Product;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +36,7 @@ public class BasketService {
         if (product.isPresent()) {
             productBasket.addProduct(id);
         } else {
-            throw new IllegalArgumentException("parameter is null");
+            throw new NoSuchProductException();
         }
     }
 
