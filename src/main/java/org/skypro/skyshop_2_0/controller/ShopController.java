@@ -1,16 +1,13 @@
 package org.skypro.skyshop_2_0.controller;
 import org.skypro.skyshop_2_0.model.article.Article;
-import org.skypro.skyshop_2_0.model.basket.BasketItem;
 import org.skypro.skyshop_2_0.model.basket.UserBasket;
 import org.skypro.skyshop_2_0.model.product.Product;
 import org.skypro.skyshop_2_0.model.search.SearchResult;
 import org.skypro.skyshop_2_0.service.BasketService;
 import org.skypro.skyshop_2_0.service.SearchService;
 import org.skypro.skyshop_2_0.service.StorageService;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.*;
 
