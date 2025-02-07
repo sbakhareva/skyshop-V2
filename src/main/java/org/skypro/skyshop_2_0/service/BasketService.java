@@ -40,11 +40,10 @@ public class BasketService {
         }
     }
 
-    public List<UserBasket> getUserBasket() {
+    public UserBasket getUserBasket() {
         List<BasketItem> basketItems = productBasket.getAllProducts().entrySet().stream()
                 .map(item -> new BasketItem(storageService.getProducts().get(item.getKey()), item.getValue()))
                 .toList();
-        List<UserBasket> userBasket = Collections.singletonList(new UserBasket(basketItems));
-        return userBasket;
+        return new UserBasket(basketItems);
     }
 }
