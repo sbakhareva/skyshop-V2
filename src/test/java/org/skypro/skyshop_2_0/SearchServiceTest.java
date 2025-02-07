@@ -32,7 +32,6 @@ public class SearchServiceTest {
     void testSearchWithProductsInStorage() {
         String searchTerm = "Product";
         Product product = new SimpleProduct(UUID.randomUUID(), "Product", 50);
-        when(storageService.getSearchableCollection()).thenReturn(Set.of(product));
         Set<Searchable> searchableSet = Set.of(product);
         when(storageService.getSearchableCollection()).thenReturn(searchableSet);
         Set<SearchResult> results = searchService.search(searchTerm);
