@@ -45,7 +45,7 @@ public class ShopController {
     }
 
     @GetMapping("/shop/basket")
-    public List<UserBasket> getUserBasket() {
+    public UserBasket getUserBasket() {
         return basketService.getUserBasket();
     }
 }
