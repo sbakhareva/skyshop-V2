@@ -7,9 +7,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.skypro.skyshop_2_0.model.article.Article;
-import org.skypro.skyshop_2_0.model.basket.BasketItem;
 import org.skypro.skyshop_2_0.model.basket.ProductBasket;
 import org.skypro.skyshop_2_0.model.basket.UserBasket;
 import org.skypro.skyshop_2_0.model.errors.NoSuchProductException;
@@ -20,7 +19,6 @@ import org.skypro.skyshop_2_0.service.StorageService;
 
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -31,6 +29,12 @@ public class BasketServiceTest {
     private StorageService storageService;
     @InjectMocks
     private BasketService basketService;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(ProductBasket.class);
+        MockitoAnnotations.openMocks(StorageService.class);
+    }
 
     @Test
     void addNonExistentProductTest() {
